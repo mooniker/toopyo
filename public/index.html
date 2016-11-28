@@ -1,0 +1,62 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>toopyo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="apple-touch-icon" href="apple-touch-icon.png">-->
+  <!-- Bootstrap v3 (CDN for prodution) -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <!-- Less CSS preprocessor (CDN for production) -->
+  <link rel="stylesheet/less" type="text/css" href="style.less" />
+  <script src="bower_components/less/dist/less.js" type="text/javascript"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js" integrity="sha256-ATJWBF9ZhO9FS8vr9wEhYO+W9vLtd3jRZVmEdC5EL0s=" crossorigin="anonymous"></script>-->
+</head>
+<body data-ng-app="toopyo">
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <header class="container">
+  </header>
+  <main data-ng-view class="container">
+  </main>
+  <footer class="container">
+    <p>&copy; toopyo 2016</p>
+  </footer>
+  <!-- Angular v1.5 (CDN for production) -->
+  <script src="bower_components/angular/angular.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js" integrity="sha256-xSfk1YU5PcIcFI45sbeoAZfcAPxmulrxHleQaCJQ3Jc=" crossorigin="anonymous"></script>-->
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.min.js" integrity="sha256-r7kJt3yPvOIbWHcVk1q5XANFwn/IpsJVtv9yQHUQaYg=" crossorigin="anonymous"></script>-->
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.9/angular-resource.min.js" integrity="sha256-jBZ2ejVsKnjDEJs/TllHxzLB+wm9BsyDZK8369D8zmA=" crossorigin="anonymous"></script>-->
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+
+  <script src="index.js"></script>
+  <script src="home.component.js"></script>
+  <script src="question-index.component.js"></script>
+  <script src="question.component.js"></script>
+  <script src="question-create.component.js"></script>
+  <script src="question.factory.js"></script>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+  // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  // e.src='//www.google-analytics.com/analytics.js';
+  // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  // ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+  </script>
+</body>
+</html>

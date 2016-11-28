@@ -1,0 +1,26 @@
+<div class="page-header">
+    <h2>Question {{$ctrl.question.id}}</h2>
+</div>
+
+<div class="container">
+    <p class="lead">{{$ctrl.question.prompt}}</p>
+    <p>{{$ctrl.question.summary}}</p>
+    <ul>
+        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.label}}</li>
+    </ul>
+    
+    <hr>
+    <p>Add decision to this question?</p>
+    <form>
+        <div class="form-group">
+            <label for="new-decision-label"></label>
+            <input id="new-decision-label" type="text" data-ng-model="$ctrl.newLabel" />
+        </div>
+        <button data-ng-click="$ctrl.submitDecision($ctrl.newLabel)" class="btn btn-primary">+</button>
+    </form>
+</div>
+
+<div>
+    <code><pre>{{$ctrl.question | json:4}}</pre></code>
+    <code><pre>{{$ctrl.decisions | json:4}}</pre></code>
+</div>

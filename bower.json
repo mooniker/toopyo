@@ -1,0 +1,28 @@
+{
+  "name": "toopyo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "James Moon <mooniker@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mooniker/toopyo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "less": "^2.7.1",
+    "angular-route": "^1.5.9",
+    "bootstrap": "^3.3.7",
+    "angular-resource": "^1.5.9",
+    "angular-animate": "^1.5.9",
+    "angular-touch": "^1.5.9",
+    "angular-bootstrap": "^2.3.0"
+  },
+  "private": true
+}

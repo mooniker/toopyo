@@ -1,0 +1,17 @@
+<div class="page-header">
+    <h2>
+        Questions
+    </h2>
+</div>
+
+<div>
+    <ul data-ng-if="$ctrl.questions && $ctrl.questions.length > 0">
+        <li data-ng-repeat="question in $ctrl.questions">
+            <a href="{{'#!/questions/' + question.id}}">{{question.prompt}}</a>
+            <button data-ng-click="$ctrl.delete(question)" class="btn btn-xs btn-danger">x</button>
+        </li>
+    </ul>
+    <p data-ng-if="!$ctrl.questions || $ctrl.questions.length === 0" class="lead">No questions yet.</p>
+</div>
+
+<question-create data-question="{}" data-on-update="$ctrl.load()"></question-create>
