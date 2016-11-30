@@ -15,13 +15,13 @@ angular.module('toopyo').component('question', {
       })
     }
 
-    this.submitDecision = function (label) {
-      $log.log(label)
+    this.submitDecision = function (title) {
+      $log.log(title)
       Question.createDecision({
-        label: label,
+        title: title,
         questionId: $routeParams.questionId
       }).$promise.then(function (decision) {
-        vm.newLabel = null
+        vm.newTitle = null
         vm.load()
       }).catch($log.error)
     }

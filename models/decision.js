@@ -2,7 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Decision = sequelize.define('Decision', {
     QuestionId: DataTypes.INTEGER,
-    label: DataTypes.STRING
+    title: DataTypes.STRING,
+    subtitle: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

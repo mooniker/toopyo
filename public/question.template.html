@@ -6,17 +6,17 @@
     <p class="lead">{{$ctrl.question.prompt}}</p>
     <p>{{$ctrl.question.summary}}</p>
     <ul>
-        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.label}}</li>
+        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.title}}</li>
     </ul>
     
     <hr>
     <p>Add decision to this question?</p>
     <form>
         <div class="form-group">
-            <label for="new-decision-label"></label>
-            <input id="new-decision-label" type="text" data-ng-model="$ctrl.newLabel" />
+            <label for="new-decision-title"></label>
+            <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" />
         </div>
-        <button data-ng-click="$ctrl.submitDecision($ctrl.newLabel)" class="btn btn-primary">+</button>
+        <button data-ng-click="$ctrl.submitDecision($ctrl.newTitle)" class="btn btn-primary">+</button>
     </form>
 </div>
 

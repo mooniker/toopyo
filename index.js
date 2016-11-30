@@ -73,7 +73,7 @@ server.get('/questions/:questionId/decisions', (request, response) => models.Dec
 
 server.post('/questions/:questionId/decisions', (request, response) => models.Decision.create({
   QuestionId: request.params.questionId,
-  label: request.body.label,
+  title: request.body.title,
   // summary: request.body.summary
 }).then(decision => response.json(decision))
   .catch(err => response.send(err)))

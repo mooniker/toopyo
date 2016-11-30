@@ -11,7 +11,12 @@ module.exports = {
       QuestionId: {
         type: Sequelize.INTEGER
       },
-      label: {
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      subtitle: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {
