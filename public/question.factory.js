@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('toopyo').factory('Question', function ($resource) {
-  return $resource('/questions/:questionId/:subResource', {
+  return $resource('/questions/:questionId/:subResource/:decisionId', {
     questionId: '@id'
   }, {
     decisions: {
@@ -17,6 +17,14 @@ angular.module('toopyo').factory('Question', function ($resource) {
         subResource: 'decisions'
       },
       method: 'POST'
+    },
+    deleteDecision: {
+      params: {
+        questionId: '@questionId',
+        subResource: 'decisions',
+        decisionId: '@decisionId'
+      },
+      method: 'DELETE'
     },
     delete: {
       params: {

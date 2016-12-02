@@ -6,7 +6,7 @@
     <p class="lead">{{$ctrl.question.prompt}}</p>
     <p>{{$ctrl.question.summary}}</p>
     <ul>
-        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.title}}</li>
+        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.title}} <button data-ng-click="$ctrl.deleteDecision(decision.id)" class="btn btn-xs btn-danger">x</button></li>
     </ul>
     
     <hr>

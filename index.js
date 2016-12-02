@@ -78,6 +78,13 @@ server.post('/questions/:questionId/decisions', (request, response) => models.De
 }).then(decision => response.json(decision))
   .catch(err => response.send(err)))
 
+server.delete('/questions/:questionId/decisions/:decisionId', (request, response) => models.Decision.destroy({
+  where: {
+    id: request.params.decisionId,
+    QuestionId: request.params.questionId
+  }
+}).then(decision => response.json(decision).catch(err => response.send(err))))
+
 // DEV ONLY
 server.get('/votes', (request, response) => models.Vote.findAll({})
   .then(votes => response.json(votes))

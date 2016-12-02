@@ -26,6 +26,13 @@ angular.module('toopyo').component('question', {
       }).catch($log.error)
     }
 
+    this.deleteDecision = function (decisionId) {
+      Question.deleteDecision({
+        questionId: $routeParams.questionId,
+        decisionId: decisionId
+      }).$promise.then(vm.load).catch($log.error)
+    }
+
     this.$onInit = function () {
       vm.load()
     }
