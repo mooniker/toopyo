@@ -5,18 +5,21 @@ angular.module('toopyo', [
   'ngRoute',
   'ngResource',
   'ui.bootstrap'
-]).
-config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!')
 
-  $routeProvider.
-    when('/', {
+  $routeProvider
+    .when('/', {
       template: '<home></home>'
-    }).
-    when('/questions', {
+    })
+    .when('/questions', {
       template: '<question-index></question-index>'
-    }).when('/questions/:questionId', {
+    })
+    .when('/questions/:questionId', {
       template: '<question></question>'
-    }).
-    otherwise({redirectTo: '/'})
+    })
+    .when('/questions/:questionId/ballot', {
+      template: '<ballot></ballot>'
+    })
+    .otherwise({redirectTo: '/'})
 }])
