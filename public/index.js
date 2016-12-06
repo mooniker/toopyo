@@ -4,7 +4,8 @@
 angular.module('toopyo', [
   'ngRoute',
   'ngResource',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularMoment'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!')
 
