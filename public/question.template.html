@@ -21,7 +21,11 @@
     <button data-ng-click="$ctrl.callQuestion()" class="btn btn-primary">Call this question to vote</button>
     
     <hr>
-    <div data-ng-if="!$ctrl.question.called" class="container">
+    <button data-ng-click="$ctrl.addNewDecision = !$ctrl.addNewDecision" class="btn btn-primary">
+        <span data-ng-if="!$ctrl.addNewDecision">+</span>
+        <span data-ng-if="$ctrl.addNewDecision">&times;</span>
+    </button>
+    <div data-ng-if="$ctrl.addNewDecision && !$ctrl.question.called" class="container">
         <p>Add decision to this question?</p>
         <form>
             <div class="form-group">

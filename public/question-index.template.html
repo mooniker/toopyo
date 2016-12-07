@@ -14,4 +14,8 @@
     <p data-ng-if="!$ctrl.questions || $ctrl.questions.length === 0" class="lead">No questions yet.</p>
 </div>
 
-<question-create data-question="{}" data-on-update="$ctrl.load()" class="container col-md-6"></question-create>
+<button data-ng-click="$ctrl.putNewQuestion = !$ctrl.putNewQuestion" class="btn btn-primary">
+    <span data-ng-if="!$ctrl.putNewQuestion">+</span>
+    <span data-ng-if="$ctrl.putNewQuestion">&times;</span>
+</button>
+<question-create data-ng-if="$ctrl.putNewQuestion" data-question="{}" data-on-update="$ctrl.load()" class="container col-md-6"></question-create>
