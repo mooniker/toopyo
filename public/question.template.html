@@ -1,24 +1,36 @@
 <div class="page-header">
-    <h2>Question {{$ctrl.question.id}}</h2>
+    <h2>
+        Question {{$ctrl.question.id}}
+        <button data-ng-click="$ctrl.deleteQuestion()" class="btn btn-xs btn-danger">x</button>
+    </h2>
 </div>
 
 <div class="container">
     <p class="lead">{{$ctrl.question.prompt}}</p>
     <p>{{$ctrl.question.summary}}</p>
     <p>{{$ctrl.question.begin | date:'short'}} &mdash; {{$ctrl.question.end | date:'short'}} ({{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes)</p>
+    <p data-ng-if="$ctrl.question.begin">Begins <span am-time-ago="$ctrl.question.begin"></span></p>
+    <p data-ng-if="$ctrl.question.end">Ends <span am-time-ago="$ctrl.question.end"></span></p>
     <ul>
-        <li data-ng-repeat="decision in $ctrl.decisions">{{decision.title}} <button data-ng-click="$ctrl.deleteDecision(decision.id)" class="btn btn-xs btn-danger">x</button></li>
+        <li data-ng-repeat="decision in $ctrl.decisions">
+            {{decision.title}}
+            <button data-ng-if="!$ctrl.question.called" data-ng-click="$ctrl.deleteDecision(decision.id)" class="btn btn-xs btn-danger">x</button>
+        </li>
     </ul>
+
+    <button data-ng-click="$ctrl.callQuestion()" class="btn btn-primary">Call this question to vote</button>
     
     <hr>
-    <p>Add decision to this question?</p>
-    <form>
-        <div class="form-group">
-            <label for="new-decision-title"></label>
-            <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" />
-        </div>
-        <button data-ng-click="$ctrl.submitDecision($ctrl.newTitle)" class="btn btn-primary">+</button>
-    </form>
+    <div data-ng-if="!$ctrl.question.called" class="container">
+        <p>Add decision to this question?</p>
+        <form>
+            <div class="form-group">
+                <label for="new-decision-title"></label>
+                <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" />
+            </div>
+            <button data-ng-click="$ctrl.submitDecision($ctrl.newTitle)" class="btn btn-primary">+</button>
+        </form>
+    </div>
 </div>
 
 <div>
