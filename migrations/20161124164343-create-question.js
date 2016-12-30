@@ -24,6 +24,11 @@ module.exports = {
       summary: {
         type: Sequelize.STRING
       },
+      called: { // null if not finalized, otherwise finalization date
+        type: Sequelize.DATE,
+        allowNull: true,
+        defaultValue: null
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

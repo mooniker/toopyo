@@ -50,6 +50,7 @@ angular.module('toopyo').component('questionCreate', {
   },
   bindings: {
     question: '<',
-    onUpdate: '&'
+    onUpdate: '&',
+    onCancel: '&'
   }
 })

@@ -26,6 +26,9 @@ angular.module('toopyo').factory('Question', function ($resource) {
       },
       method: 'DELETE'
     },
+    call: {
+      //
+    },
     delete: {
       params: {
         questionId: '@id'

@@ -5,37 +5,62 @@
     </h2>
 </div>
 
-<div class="container">
-    <p class="lead">{{$ctrl.question.prompt}}</p>
-    <p>{{$ctrl.question.summary}}</p>
-    <p>{{$ctrl.question.begin | date:'short'}} &mdash; {{$ctrl.question.end | date:'short'}} ({{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes)</p>
-    <p data-ng-if="$ctrl.question.begin">Begins <span am-time-ago="$ctrl.question.begin"></span></p>
-    <p data-ng-if="$ctrl.question.end">Ends <span am-time-ago="$ctrl.question.end"></span></p>
-    <ul>
-        <li data-ng-repeat="decision in $ctrl.decisions">
-            {{decision.title}}
-            <button data-ng-if="!$ctrl.question.called" data-ng-click="$ctrl.deleteDecision(decision.id)" class="btn btn-xs btn-danger">x</button>
-        </li>
-    </ul>
+<div class="row">
+    <div class="container col-md-6">
+        <p class="lead">{{$ctrl.question.prompt}}</p>
+        <p>{{$ctrl.question.summary}}</p>
+        <p>{{$ctrl.question.begin | date:'short'}} &mdash; {{$ctrl.question.end | date:'short'}} ({{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes)</p>
+        <p data-ng-if="$ctrl.question.begin">Begins <span am-time-ago="$ctrl.question.begin"></span></p>
+        <p data-ng-if="$ctrl.question.end">Ends <span am-time-ago="$ctrl.question.end"></span></p>
+        <ul>
+            <li data-ng-repeat="decision in $ctrl.decisions">
+                {{decision.title}}
+                <button data-ng-if="!$ctrl.question.called" data-ng-click="$ctrl.deleteDecision(decision.id)" class="btn btn-xs btn-danger">x</button>
+            </li>
+        </ul>
 
-    <button data-ng-click="$ctrl.callQuestion()" class="btn btn-primary">Call this question to vote</button>
-    
-    <hr>
-    <button data-ng-click="$ctrl.addNewDecision = !$ctrl.addNewDecision" class="btn btn-primary">
-        <span data-ng-if="!$ctrl.addNewDecision">+</span>
-        <span data-ng-if="$ctrl.addNewDecision">&times;</span>
-    </button>
-    <div data-ng-if="$ctrl.addNewDecision && !$ctrl.question.called" class="container">
-        <p>Add decision to this question?</p>
+        <button data-ng-click="$ctrl.callQuestion()" class="btn btn-primary">Call this question to vote</button>
+        
+        <hr>
+        <button data-ng-click="$ctrl.addNewDecision = !$ctrl.addNewDecision" class="btn btn-primary">
+            <span data-ng-if="!$ctrl.addNewDecision">+</span>
+            <span data-ng-if="$ctrl.addNewDecision">&times;</span>
+        </button>
+        <div data-ng-if="$ctrl.addNewDecision && !$ctrl.question.called" class="container">
+            <p>Add decision to this question?</p>
+            <form>
+                <div class="form-group">
+                    <label for="new-decision-title"></label>
+                    <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" />
+                </div>
+                <button data-ng-click="$ctrl.submitDecision($ctrl.newTitle)" class="btn btn-primary">+</button>
+            </form>
+        </div>
+    </div><!-- /.container -->
+    <div class="container col-md-6">
         <form>
             <div class="form-group">
-                <label for="new-decision-title"></label>
-                <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" />
+                <label for="prompt">Prompt</label>
+                <input type="text" data-ng-model="$ctrl.question.prompt" class="form-control" id="prompt" placeholder="Question prompt"></input>
             </div>
-            <button data-ng-click="$ctrl.submitDecision($ctrl.newTitle)" class="btn btn-primary">+</button>
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <textarea id="summary" data-ng-model="$ctrl.question.summary" class="form-control" rows="3" placeholder="A summary of the question may be placed here."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                <input type="checkbox"> Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
-</div>
+</div><!-- /.row -->
 
 <div>
     <code><pre>{{$ctrl.question | json:4}}</pre></code>

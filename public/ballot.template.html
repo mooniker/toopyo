@@ -5,12 +5,15 @@
 <div class="container">
     <p class="lead">{{$ctrl.question.prompt}}</p>
     <p>{{$ctrl.question.summary}}</p>
-    <div class="radio" data-ng-repeat="decision in $ctrl.decisions">
-        <label>
-            <input type="radio" name="question-{{$ctrl.question.id}}-decisions" id="decision-{{decision.id}}" value="{{decision.id}}">
-            {{decision.title}}
-        </label>
-    </div>
+    <form id="ballot">
+        <div class="radio" data-ng-repeat="decision in $ctrl.decisions">
+            <label>
+                <input type="radio" name="question-{{$ctrl.question.id}}-decisions" id="decision-{{decision.id}}" value="{{decision.id}}">
+                {{decision.title}}
+            </label>
+        </div>
+        <button type="submit" for="ballot" class="btn btn-primary">Vote</button>
+    </form>
 </div>
 
 <div>

@@ -1,39 +1,32 @@
-<form class="form-horizontal">
-    <p class="lead">Question Put to Vote</p>
-    <div class="form-group">
-        <label for="new-question-prompt" class="col-sm-3 control-label">Prompt</label>
-        <div class="col-sm-9">
-            <input id="new-question-prompt" data-ng-model="$ctrl.question.prompt" type="text" class="form-control" autocomplete="off"></input>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Question Put to Vote
+        <button data-ng-click="$ctrl.onCancel()" class="btn btn-xs btn-danger">&times;</button>
     </div>
-    <div class="form-group">
-        <label for="new-question-summary" class="col-sm-3 control-label">Summary</label>
-        <div class="col-sm-9">
-            <textarea id="new-question-summary" data-ng-model="$ctrl.question.summary" type="text" class="form-control"  autocomplete="off"></textarea>
-        </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="question-prompt">Prompt</label>
+                <input id="question-prompt" data-ng-model="$ctrl.question.prompt" type="text" class="form-control" autocomplete="off"></input>
+            </div>
+            <div class="form-group">
+                <label for="question-summary">Summary</label>
+                <textarea id="question-summary" data-ng-model="$ctrl.question.summary" type="text" class="form-control"  autocomplete="off"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question-begin-time">begin</label>
+                <!--<div uib-datepicker-popup ng-model="$ctrl.question.begin"></div>-->
+                <div uib-timepicker ng-model="$ctrl.question.begin" xng-change="changed()" hour-step="1" minute-step="1"></div>
+                <p class="lead">{{$ctrl.question.begin | date:'short'}}</p>
+            </div>
+            <div class="form-group">
+                <label for="question-end-time">end</label>
+                <div uib-timepicker ng-model="$ctrl.question.end" xng-change="changed()" hour-step="1" minute-step="1"></div>
+                <p class="lead">{{$ctrl.question.end | date:'short'}}</p>
+            </div>
+            <p class="lead" ng-if="$ctrl.question.end && $ctrl.question.begin">Duration: {{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes</p>
+            <button type="submit" class="btn btn-primary" data-ng-click="$ctrl.submit()">Submit</button>
+            <code><pre>{{$ctrl.question | json:4}}</pre></code>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="new-question-begin-time" class="col-sm-3 control-label">begin time</label>
-        <div uib-timepicker ng-model="$ctrl.question.begin" xng-change="changed()" hour-step="1" minute-step="1" class="col-sm-5"></div>
-        <!--<div class="col-sm-9">
-            <input type="time" id="new-question-begin-time" class="form-control" ng-model="$ctrl.question.begin" ng-required="true" />
-        </div>-->
-        <div class="col-md-4">
-            <p class="lead">{{$ctrl.question.begin | date:'short'}}</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="new-question-end-time" class="col-sm-3 control-label">end time</label>
-        <div uib-timepicker ng-model="$ctrl.question.end" xng-change="changed()" hour-step="1" minute-step="1" class="col-sm-5"></div>
-        <!--<div class="col-sm-9">
-            <input type="time" id="new-question-end-time" class="form-control" ng-model="$ctrl.question.end" ng-required="true" />
-        </div>-->
-        <div class="col-md-4">
-            <p class="lead">{{$ctrl.question.end | date:'short'}}</p>
-        </div>
-    </div>
-    <p class="lead" ng-if="$ctrl.question.end && $ctrl.question.begin">Duration: {{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes</p>
-    <button type="submit" class="btn btn-primary" data-ng-click="$ctrl.submit()">Submit</button>
-    <code><pre>{{$ctrl.question | json:4}}</pre></code>
-</form>
-
+</div>

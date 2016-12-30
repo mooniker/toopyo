@@ -10,6 +10,13 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         Decision.belongsTo(models.Question)
       }
+    },
+    validate: {
+      // unique: function () {
+      //   if (this.title) {
+      //     throw new Error('Decision must contain title unique to decisions in question.')
+      //   }
+      // }
     }
   });
   return Decision;

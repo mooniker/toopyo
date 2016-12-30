@@ -25,7 +25,7 @@ angular.module('toopyo').component('question', {
         vm.question.$delete(function () {
           $log.log('Question deleted.')
           $location.path('/questions')
-        })
+        }).catch($log.error)
       }).catch(function () {
         $log.info('Delete cancelled: ' + new Date())
       })
@@ -39,14 +39,20 @@ angular.module('toopyo').component('question', {
       }).$promise.then(function (decision) {
         vm.newTitle = null
         vm.load()
+        vm.addNewDecision = false
       }).catch($log.error)
     }
 
     this.deleteDecision = function (decisionId) {
-      Question.deleteDecision({
-        questionId: $routeParams.questionId,
-        decisionId: decisionId
-      }).$promise.then(vm.load).catch($log.error)
+      $log.log('Clicked to delete decision #' + decisionId)
+      Modal.confirmDelete('decision', decisionId).result.then(function (confirmed) {
+        Question.deleteDecision({
+          questionId: $routeParams.questionId,
+          decisionId: decisionId
+        }).$promise.then(vm.load).catch($log.error)
+      }).catch(function () {
+        $log.info('Delete decision cancelled.')
+      })
     }
 
     this.$onInit = function () {

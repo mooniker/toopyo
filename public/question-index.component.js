@@ -13,6 +13,7 @@ angular.module('toopyo').component('questionIndex', {
         question.$delete(function () {
           $log.log('Question deleted.')
           vm.load()
+          vm.putNewQuestion = false
         })
       }).catch(function () {
         $log.info('Delete cancelled: ' + new Date())
