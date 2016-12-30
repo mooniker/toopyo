@@ -10,6 +10,7 @@ server.use(bodyParser.urlencoded({ extended: false }))
 server.use(logger('dev'))
 server.use(express.static('public'))
 server.use('/bower_components', express.static('bower_components'))
+server.use('/scripts', express.static('node_modules'))
 
 const models = require('./models/index')
 
