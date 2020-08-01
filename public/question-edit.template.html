@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Let's vote on something
+        <button data-ng-click="$ctrl.onCancel()" class="btn btn-xs btn-danger">&times;</button>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="question-prompt">Prompt</label>
+                <input id="question-prompt" data-ng-model="$ctrl.question.prompt" type="text" class="form-control" autocomplete="off"></input>
+            </div>
+            <div class="form-group">
+                <label for="question-summary">Summary</label>
+                <textarea id="question-summary" data-ng-model="$ctrl.question.summary" type="text" class="form-control"  autocomplete="off"></textarea>
+            </div>
+            <div class="form-group">
+                <p class="lead">Decisions/options/choices for this question</p>
+                <ul data-ng-show="$ctrl.decisions" class="list-group">
+                    <li class="list-group-item" data-ng-repeat="decision in $ctrl.decisions">{{decision}}</li>
+                </ul>
+                <p data-ng-show="$ctrl.decisions.length < 2">Please add a decision. ({{$ctrl.decisions.length}})</p>
+
+                <label for="new-decision-title"></label>
+                <input id="new-decision-title" type="text" data-ng-model="$ctrl.newTitle" autocomplete="off" />
+                <button data-ng-click="$ctrl.decisions.push($ctrl.newTitle); $ctrl.newTitle = ''" class="btn btn-primary">+</button>
+
+            </div>
+            <p class="lead" ng-if="$ctrl.question.end && $ctrl.question.begin">Duration: {{$ctrl.question.end | amDifference : $ctrl.question.begin : 'minutes'}} minutes</p>
+            <button type="submit" class="btn btn-primary" data-ng-click="$ctrl.submit()">Submit</button>
+            <code><pre>{{$ctrl.question | json:4}}</pre></code>
+        </form>
+    </div>
+</div>

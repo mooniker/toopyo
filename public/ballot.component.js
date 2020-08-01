@@ -13,6 +13,6 @@ angular.module('toopyo').component('ballot', {
         questionId: $routeParams.questionId,
         subResource: 'decisions'
       })
-    }    
+    }
   }
 })

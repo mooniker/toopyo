@@ -35,17 +35,21 @@ server.post('/questions', (request, response) => models.Question.create({
   summary: request.body.summary
 }).then(data => response.send(data)).catch(err => response.send(err)))
 
-server.delete('/questions/:questionId', (request, response) => models.Question.destroy({
-  where: {
-    id: request.params.questionId
-  }
-}).then(question => response.json(question)).catch(err => response.send(err)))
+server.delete('/questions/:questionId', (request, response) => models.Question
+  .destroy({
+    where: {
+      id: request.params.questionId
+    }
+  })
+  .then(question => response.json(question))
+  .catch(err => response.send(err)))
 
 // server.delete('/questions', (request, response) => {
 //   console.log(request.body)
 // })
 
-server.get('/questions', (request, response) => models.Question.findAll({})
+server.get('/questions', (request, response) => models.Question
+  .findAll({})
   .then(questions => response.json(questions))
   .catch(err => response.send(err)))
 
@@ -103,5 +107,5 @@ server.post('/questions/:questionId/votes', (request, response) => models.Vote.c
 }).then(vote => response.json(vote))
   .catch(err => response.send(err)))
 
-const PORT = 4000
+const PORT = process.env.PORT || 4000
 server.listen(PORT, console.log(`Server running on port ${PORT}`))

@@ -19,4 +19,5 @@
 </div>
 
 <button data-ng-click="$ctrl.putNewQuestion = !$ctrl.putNewQuestion" data-ng-if="!$ctrl.putNewQuestion" class="btn btn-primary btn-xs">+</button>
-<question-create data-ng-if="$ctrl.putNewQuestion" data-question="{}" data-on-update="$ctrl.load(); $ctrl.putNewQuestion = false" data-on-cancel="$ctrl.putNewQuestion = false" class="container col-md-6"></question-create>
+<!--<question-create data-ng-if="$ctrl.putNewQuestion" data-question="{}" data-on-update="$ctrl.load(); $ctrl.putNewQuestion = false" data-on-cancel="$ctrl.putNewQuestion = false" class="container col-md-6"></question-create>-->
+<question-edit data-ng-if="$ctrl.putNewQuestion" data-question="{}" data-on-update="$ctrl.load(); $ctrl.putNewQuestion = false" data-on-cancel="$ctrl.putNewQuestion = false" class="container col-md-6"></question-create>
